@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_price_sheets",
+  "info": {
+    "singularName": "user-price-sheet",
+    "pluralName": "user-price-sheets",
+    "displayName": "User_Price_Sheet",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "price_sheet": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::price-sheet.price-sheet"
+    }
+  }
+}

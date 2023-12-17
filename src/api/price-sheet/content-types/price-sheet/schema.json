@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "price_sheets",
+  "info": {
+    "singularName": "price-sheet",
+    "pluralName": "price-sheets",
+    "displayName": "Price_Sheet",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "price_items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "price-item.price-item"
+    },
+    "carrier": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::carrier.carrier"
+    },
+    "name": {
+      "type": "string"
+    },
+    "default": {
+      "type": "boolean",
+      "default": false
+    },
+    "deleted": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wards",
+  "info": {
+    "singularName": "ward",
+    "pluralName": "wards",
+    "displayName": "Ward",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "ward_id": {
+      "type": "string"
+    },
+    "district": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::district.district",
+      "inversedBy": "wards"
+    },
+    "extensions_name": {
+      "type": "text"
+    }
+  }
+}

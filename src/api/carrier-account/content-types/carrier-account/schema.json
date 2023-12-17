@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "carrier_accounts",
+  "info": {
+    "singularName": "carrier-account",
+    "pluralName": "carrier-accounts",
+    "displayName": "Carrier_Account",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "account_name": {
+      "type": "string"
+    },
+    "api_url": {
+      "type": "string"
+    },
+    "carrier": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::carrier.carrier",
+      "inversedBy": "carrier_accounts"
+    },
+    "reminder_link": {
+      "type": "string"
+    },
+    "encrypt_data": {
+      "type": "json",
+      "private": true
+    },
+    "settings": {
+      "type": "json",
+      "private": true,
+      "default": {}
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_zone_pick_zone_picks",
+  "info": {
+    "displayName": "Zone Pick",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "enumeration",
+      "enum": [
+        "MB",
+        "MN",
+        "MT",
+        "HCM",
+        "HN"
+      ]
+    }
+  }
+}

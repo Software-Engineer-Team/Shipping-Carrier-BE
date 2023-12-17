@@ -1,0 +1,102 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reconciliation_orders",
+  "info": {
+    "singularName": "reconciliation-order",
+    "pluralName": "reconciliation-orders",
+    "displayName": "Reconciliation_Order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tracking_id": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "datetime"
+    },
+    "end_date": {
+      "type": "datetime"
+    },
+    "weight": {
+      "type": "decimal",
+      "default": 0
+    },
+    "partner_cash_on_delivery": {
+      "type": "decimal",
+      "default": 0
+    },
+    "partner_shipment_fee": {
+      "type": "decimal",
+      "default": 0
+    },
+    "partner_return_fee": {
+      "type": "decimal",
+      "default": 0
+    },
+    "partner_insurance_fee": {
+      "type": "decimal",
+      "default": 0
+    },
+    "partner_other_fee": {
+      "type": "decimal",
+      "default": 0
+    },
+    "partner_change_fee": {
+      "type": "decimal",
+      "default": 0
+    },
+    "system_shipment_fee": {
+      "type": "decimal",
+      "default": 0
+    },
+    "system_cash_on_delivery": {
+      "type": "decimal",
+      "default": 0
+    },
+    "system_insurance_fee": {
+      "type": "decimal",
+      "default": 0
+    },
+    "system_return_fee": {
+      "type": "decimal",
+      "default": 0
+    },
+    "system_other_fee": {
+      "type": "decimal",
+      "default": 0
+    },
+    "system_change_fee": {
+      "type": "decimal",
+      "default": 0
+    },
+    "reconciliation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::reconciliation.reconciliation",
+      "inversedBy": "reconciliation_orders"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Completed",
+        "Returned"
+      ]
+    },
+    "carrier": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::carrier.carrier"
+    },
+    "payment_type_id": {
+      "type": "integer"
+    },
+    "is_partial_returned": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

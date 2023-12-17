@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reconciliations",
+  "info": {
+    "singularName": "reconciliation",
+    "pluralName": "reconciliations",
+    "displayName": "Reconciliation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "completed",
+        "cancelled"
+      ]
+    },
+    "reconciliation_orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::reconciliation-order.reconciliation-order",
+      "mappedBy": "reconciliation"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

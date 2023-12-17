@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bank_accounts",
+  "info": {
+    "singularName": "bank-account",
+    "pluralName": "bank-accounts",
+    "displayName": "Bank_Account",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "account_holder_name": {
+      "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "banks"
+    },
+    "default": {
+      "type": "boolean"
+    },
+    "bank_account_number": {
+      "type": "string"
+    },
+    "bank": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bank.bank"
+    }
+  }
+}

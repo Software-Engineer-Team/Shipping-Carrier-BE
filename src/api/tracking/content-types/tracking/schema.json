@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trackings",
+  "info": {
+    "singularName": "tracking",
+    "pluralName": "trackings",
+    "displayName": "Tracking",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tracking_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "decimal"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

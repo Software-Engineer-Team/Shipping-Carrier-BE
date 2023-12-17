@@ -1,0 +1,88 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:15.4
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: strapi_admin
+      POSTGRES_PASSWORD: bigsizeship@123
+      POSTGRES_DB: bigsizeship_db
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
+    networks:
+      - bigsizeship-net
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+      # command: --requirepass redis
+    command: redis-server --appendonly yes --replica-read-only no
+    networks:
+      - bigsizeship-net
+    volumes:
+      - cache:/data
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.7.1
+    container_name: elasticsearch
+    environment:
+      discovery.type: single-node
+      ES_JAVA_OPTS: -Xmx512m -Xms512m
+      ELASTIC_USERNAME: bigsizeship
+      ELASTIC_PASSWORD: bigsizeship@123
+      xpack.security.enabled: false
+      http.host: 0.0.0.0
+      # network.host: 0.0.0.0
+      node.name: es01
+      cluster.name: elasticsearch
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    expose:
+      - 9200
+    restart: always
+    networks:
+      - bigsizeship-net
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.7.1
+    container_name: kibana
+    environment:
+      SERVERNAME: kibana
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+      ELASTIC_USERNAME: bigsizeship
+      ELASTIC_PASSWORD: bigsizeship@123
+      ES_JAVA_OPTS: -Xmx512m -Xms512m
+    ports:
+      - 5601:5601
+    depends_on:
+      - elasticsearch
+    links:
+      - elasticsearch
+    restart: always
+    networks:
+      - bigsizeship-net
+  fluent-bit:
+    image: fluent/fluent-bit
+    container_name: fluent-bit
+    volumes:
+      - ./fluent-bit/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
+    ports:
+      - 24224:24224
+    depends_on:
+      - elasticsearch
+    networks:
+      - bigsizeship-net
+volumes:
+  pgdata:
+    driver: local
+  cache:
+    driver: local
+  esdata:
+    driver: local
+networks:
+  bigsizeship-net:

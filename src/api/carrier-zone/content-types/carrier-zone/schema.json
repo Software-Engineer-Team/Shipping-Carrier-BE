@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "carrier_zones",
+  "info": {
+    "singularName": "carrier-zone",
+    "pluralName": "carrier-zones",
+    "displayName": "Carrier_Zone",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "carrier": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::carrier.carrier"
+    },
+    "provinces": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::province.province"
+    },
+    "region_name": {
+      "type": "enumeration",
+      "enum": [
+        "MB",
+        "MN",
+        "MT",
+        "HCM",
+        "HN"
+      ]
+    }
+  }
+}

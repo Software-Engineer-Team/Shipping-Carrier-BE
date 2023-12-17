@@ -1,0 +1,184 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": true
+    },
+    "content-type-builder": {
+      "visible": true
+    }
+  },
+  "attributes": {
+    "from_name": {
+      "type": "string"
+    },
+    "from_phone_number": {
+      "type": "string"
+    },
+    "from_address": {
+      "type": "string"
+    },
+    "from_ward": {
+      "type": "string"
+    },
+    "from_ward_code": {
+      "type": "string"
+    },
+    "from_district": {
+      "type": "string"
+    },
+    "from_district_code": {
+      "type": "string"
+    },
+    "from_province": {
+      "type": "string"
+    },
+    "from_province_code": {
+      "type": "string"
+    },
+    "to_name": {
+      "type": "string"
+    },
+    "to_phone_number": {
+      "type": "string"
+    },
+    "to_address": {
+      "type": "string"
+    },
+    "to_ward": {
+      "type": "string"
+    },
+    "to_ward_code": {
+      "type": "string"
+    },
+    "to_district": {
+      "type": "string"
+    },
+    "to_district_code": {
+      "type": "string"
+    },
+    "to_province": {
+      "type": "string"
+    },
+    "to_province_code": {
+      "type": "string"
+    },
+    "delivery_instructions": {
+      "type": "text"
+    },
+    "merchant_order_number": {
+      "type": "string"
+    },
+    "tracking_id": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "decimal"
+    },
+    "cash_on_delivery": {
+      "type": "decimal"
+    },
+    "parcel_value": {
+      "type": "decimal"
+    },
+    "shipment_fee": {
+      "type": "decimal"
+    },
+    "reference_code": {
+      "type": "string"
+    },
+    "deleted": {
+      "type": "boolean",
+      "default": false
+    },
+    "insurance_fee": {
+      "type": "decimal",
+      "default": 0
+    },
+    "return_fee": {
+      "type": "decimal",
+      "default": 0
+    },
+    "payment_type_id": {
+      "type": "integer"
+    },
+    "product_name": {
+      "type": "text"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "carrier": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::carrier.carrier"
+    },
+    "is_reconciled": {
+      "type": "boolean",
+      "default": false
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Đang chờ lấy hàng",
+        "Đang vận chuyển",
+        "Vận chuyển thất bại",
+        "Trả lại cho người gửi",
+        "Giao hàng thành công",
+        "Đơn hàng hủy"
+      ]
+    },
+    "price_sheet": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::price-sheet.price-sheet",
+      "private": true
+    },
+    "carrier_account": {
+      "type": "json",
+      "private": true
+    },
+    "height": {
+      "type": "decimal"
+    },
+    "width": {
+      "type": "decimal"
+    },
+    "length": {
+      "type": "decimal"
+    },
+    "other_fee": {
+      "type": "decimal",
+      "default": 0
+    },
+    "change_fee": {
+      "type": "decimal",
+      "default": 0
+    },
+    "end_date": {
+      "type": "datetime"
+    },
+    "is_partial_returned": {
+      "type": "boolean",
+      "default": false
+    },
+    "initial_weight": {
+      "type": "decimal"
+    },
+    "label": {
+      "type": "string"
+    }
+  }
+}

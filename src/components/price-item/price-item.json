@@ -1,0 +1,54 @@
+{
+  "collectionName": "components_price_item_price_items",
+  "info": {
+    "displayName": "Price Item",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "from_weight": {
+      "type": "decimal"
+    },
+    "to_weight": {
+      "type": "decimal"
+    },
+    "purchase_price": {
+      "type": "decimal"
+    },
+    "sale_price": {
+      "type": "decimal"
+    },
+    "step_price": {
+      "type": "decimal",
+      "default": 0
+    },
+    "return_fee": {
+      "type": "decimal",
+      "default": 0
+    },
+    "carrier_account": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::carrier-account.carrier-account"
+    },
+    "zone_type": {
+      "type": "enumeration",
+      "enum": [
+        "Nội Tỉnh",
+        "Nội Vùng",
+        "Liên Vùng",
+        "Hồ Chí Minh",
+        "Hà Nội"
+      ]
+    },
+    "zone_pick": {
+      "type": "component",
+      "repeatable": true,
+      "component": "zone-pick.zone-pick"
+    },
+    "custom": {
+      "type": "json",
+      "default": {}
+    }
+  }
+}

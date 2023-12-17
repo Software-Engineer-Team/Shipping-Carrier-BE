@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "carriers",
+  "info": {
+    "singularName": "carrier",
+    "pluralName": "carriers",
+    "displayName": "Carrier",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "carrier_accounts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::carrier-account.carrier-account",
+      "mappedBy": "carrier"
+    }
+  }
+}

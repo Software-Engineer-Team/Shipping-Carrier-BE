@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "banks",
+  "info": {
+    "singularName": "bank",
+    "pluralName": "banks",
+    "displayName": "Bank",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

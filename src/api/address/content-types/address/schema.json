@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "addresses",
+  "info": {
+    "singularName": "address",
+    "pluralName": "addresses",
+    "displayName": "Address",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "from_name": {
+      "type": "string"
+    },
+    "from_address": {
+      "type": "string"
+    },
+    "from_ward": {
+      "type": "string"
+    },
+    "from_ward_code": {
+      "type": "string"
+    },
+    "from_district": {
+      "type": "string"
+    },
+    "from_district_code": {
+      "type": "string"
+    },
+    "from_province": {
+      "type": "string"
+    },
+    "from_province_code": {
+      "type": "string"
+    },
+    "default": {
+      "type": "boolean",
+      "default": false
+    },
+    "from_phone_number": {
+      "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "addresses"
+    }
+  }
+}
